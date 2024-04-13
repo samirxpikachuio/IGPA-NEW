@@ -7,6 +7,7 @@ export interface AccountRepositoryLoginResponseLogged_in_user {
   username: string;
   full_name: string;
   is_private: boolean;
+  is_active?: boolean;
   profile_pic_url: string;
   profile_pic_id: string;
   is_verified: boolean;
