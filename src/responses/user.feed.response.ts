@@ -51,7 +51,7 @@ export interface UserFeedResponseItemsItem {
   video_versions?: UserFeedResponseVideoVersionsItem[];
   has_audio?: boolean;
   video_duration?: number;
-  view_count?: number;
+  play_count?: number;
 }
 export interface UserFeedResponseImage_versions2 {
   candidates: UserFeedResponseCandidatesItem[];
