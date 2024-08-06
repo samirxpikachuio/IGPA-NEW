@@ -2,6 +2,19 @@ export interface UserRepositoryInfoResponseRootObject {
   user: UserRepositoryInfoResponseUser;
   status: string;
 }
+
+interface BioLink {
+  link_id: string;
+  url: string;
+  lynx_url?: string;
+  link_type: 'external' | 'internal';
+  title: string;
+  image_url?: string;
+  is_pinned: boolean;
+  is_verified: boolean;
+  open_external_url_with_in_app_browser: boolean;
+}
+
 export interface UserRepositoryInfoResponseUser {
   pk: number;
   username: string;
@@ -17,6 +30,7 @@ export interface UserRepositoryInfoResponseUser {
   following_count: number;
   following_tag_count: number;
   biography: string;
+  bio_link?: BioLink[];
   can_link_entities_in_bio: boolean;
   biography_with_entities: UserRepositoryInfoResponseBiography_with_entities;
   external_url: string;
@@ -69,6 +83,7 @@ export interface UserRepositoryInfoResponseUser {
   category?: string;
   contact_phone_number?: string;
   public_phone_country_code?: string;
+  public_phone_number?: string;
 }
 export interface UserRepositoryInfoResponseBiography_with_entities {
   raw_text: string;
