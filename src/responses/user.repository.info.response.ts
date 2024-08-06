@@ -30,7 +30,7 @@ export interface UserRepositoryInfoResponseUser {
   following_count: number;
   following_tag_count: number;
   biography: string;
-  bio_link?: BioLink[];
+  bio_links?: BioLink[];
   can_link_entities_in_bio: boolean;
   biography_with_entities: UserRepositoryInfoResponseBiography_with_entities;
   external_url: string;
