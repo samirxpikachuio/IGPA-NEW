@@ -83,6 +83,7 @@ export interface UserRepositoryInfoResponseUser {
   category?: string;
   contact_phone_number?: string;
   public_phone_country_code?: string;
+  public_phone_number?: string;
 }
 export interface UserRepositoryInfoResponseBiography_with_entities {
   raw_text: string;
