@@ -61,7 +61,7 @@ export class FriendshipRepository extends Repository {
       method: 'POST',
       form: this.client.request.sign({
         _csrftoken: this.client.state.cookieCsrfToken,
-        user_id: id,
+        target_user_id: id,
         radio_type: this.client.state.radioType,
         _uid: this.client.state.cookieUserId,
         device_id: this.client.state.deviceId,
