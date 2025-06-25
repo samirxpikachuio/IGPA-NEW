@@ -362,7 +362,7 @@ export class MediaRepository extends Repository {
     return body;
   }
 
-  public async configureVideo(options: MediaConfigureTimelineVideoOptions) {
+   public async configureVideo(options: MediaConfigureTimelineVideoOptions, isClips: boolean) {
     const now = DateTime.local().toFormat('yyyy:mm:dd HH:mm:ss');
 
     const form = this.applyConfigureDefaults<MediaConfigureTimelineVideoOptions>(options, {
@@ -388,7 +388,7 @@ export class MediaRepository extends Repository {
     }
 
     const { body } = await this.client.request.send<MediaRepositoryConfigureResponseRootObject>({
-      url: '/api/v1/media/configure/',
+      url: '/api/v1/media/configure' + (isClips ? '_to_clips/' : '/'),
       method: 'POST',
       qs: {
         video: '1',
@@ -796,17 +796,15 @@ export class MediaRepository extends Repository {
     return body;
   }
   
-  private async storyCountdownAction(
-    countdownId: string | number,
-    action: string,
-  ): Promise<StatusResponse> {
+  
+  private async storyCountdownAction(countdownId: string | number, action: string): Promise<StatusResponse> {
     const { body } = await this.client.request.send({
       url: `/api/v1/media/${countdownId}/${action}/`,
       method: 'POST',
       form: this.client.request.sign({
         _csrftoken: this.client.state.cookieCsrfToken,
         _uid: this.client.state.cookieUserId,
-        _uuid: this.client.state.uuid
+        _uuid: this.client.state.uuid,
       }),
     });
     return body;
