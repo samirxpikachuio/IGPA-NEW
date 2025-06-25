@@ -4,6 +4,7 @@ export interface AccountEditProfileOptions {
   phone_number: string;
   username: string;
   first_name: string;
+  full_name: string;
   biography: string;
   email: string;
 }
